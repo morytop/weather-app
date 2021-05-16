@@ -20,6 +20,15 @@ if ('geolocation' in navigator) {
     notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
 }
 
+function setPosition(position) {
+    let latitude = position.coord.latitude;
+    let longitude = position.coord.longitude;
+
+    getWeather(latitude, longitude);
+}
+
+
+
 function displayWeather() {
     iconElement.innerHTML = `<img src="./icons/${weather.iconId}.png"/>`;
     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
