@@ -10,6 +10,16 @@ weather.temperature = {
     unit: "celsius"
 }
 
+const KELVIN = 273;
+const key = "b00ba2b644f7cd1d345e062836d62d69";
+
+if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(setPosition, showError);
+} else {
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
+}
+
 function displayWeather() {
     iconElement.innerHTML = `<img src="./icons/${weather.iconId}.png"/>`;
     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
