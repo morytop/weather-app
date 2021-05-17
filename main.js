@@ -27,7 +27,10 @@ function setPosition(position) {
     getWeather(latitude, longitude);
 }
 
-
+function showError(error) {
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = `<p>${error.message}</p>`;
+}
 
 function displayWeather() {
     iconElement.innerHTML = `<img src="./icons/${weather.iconId}.png"/>`;
